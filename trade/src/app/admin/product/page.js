@@ -107,14 +107,14 @@ const ProductDetails = () => {
   };
 
   const renderDetails = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
       {/* Product Images */}
       <div className="space-y-4">
         <div className="relative aspect-square bg-gray-100 border-[1.5px] border-gray-200 rounded-lg overflow-hidden">
           <img 
             src={images[selectedImage]} 
             alt="Product" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
           <button className="absolute top-4 right-4 p-2 bg-white rounded-full shadow hover:bg-gray-50">
             <ZoomIn size={20} className="text-gray-600" />
@@ -136,11 +136,11 @@ const ProductDetails = () => {
       </div>
 
       {/* Product Info */}
-      <div className="space-y-6 border-[1.5px] border-gray-200 p-6 rounded-lg">
-        <div className="flex justify-between items-start">
+      <div className="space-y-6 border-[1.5px] border-gray-200 p-6 rounded-lg relative">
+        <div className="">
           <div>
             <h1 className="text-xl text-gray-700 font-semibold">Smartwatch E2</h1>
-            <div className="mt-2 flex items-center space-x-4 text-sm text-gray-600">
+            <div className="mt-2 flex items-center space-x-4 w-full text-sm text-gray-600">
               <span className="flex items-center">
                 <Package size={16} className="mr-1" />
                 Sold: 1,316
@@ -155,12 +155,9 @@ const ProductDetails = () => {
               </span>
             </div>
           </div>
-          <div className="flex space-x-2">
+          <div className="absolute right-2 top-2">
             <button className="p-2 text-red-500 hover:bg-red-50 rounded-lg">
               <Trash2 size={20} />
-            </button>
-            <button className="p-2 text-gray-600 hover:bg-gray-50 rounded-lg">
-              <Edit size={20} />
             </button>
           </div>
         </div>
@@ -174,8 +171,8 @@ const ProductDetails = () => {
 
         {/* Description */}
         <div>
-          <h3 className="text-sm font-medium text-gray-900 mb-2">Description:</h3>
-          <p className="text-gray-600">
+          <h3 className="text-xs font-medium text-gray-400 mb-2">Description:</h3>
+          <p className="text-gray-700 text-sm">
             Smartwatch for men women notify you incoming calls, SMS notifications. when you connect 
             the smartphone with fitness tracker. Connect fitness tracker with your phone, you will never 
             miss a call and a message. The smart watches for android phones will vibrate to alert you if 
@@ -186,8 +183,8 @@ const ProductDetails = () => {
 
         {/* Weight & Dimensions */}
         <div>
-          <h3 className="text-sm font-medium text-gray-900 mb-2">Weight & Dimension:</h3>
-          <p className="text-gray-600">0.25kg / 10 CM,10 CM,7 CM (H,L,W)</p>
+          <h3 className="text-xs font-medium text-gray-400 mb-2">Weight & Dimension:</h3>
+          <p className="text-gray-700 text-sm">0.25kg / 10 CM,10 CM,7 CM (H,L,W)</p>
         </div>
 
         {/* SKU & Created Date */}
@@ -286,13 +283,13 @@ const ProductDetails = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       {/* Main Content */}
       <div className="max-w-7xl mx-auto p-4">
         <div className="bg-white rounded-lg shadow">
           {/* Tabs */}
           <div className="border-b">
-            <div className="flex space-x-6 px-6">
+            <div className="flex space-x-6 px-6 text-sm">
               <button 
                 className={`py-4 font-medium border-b-2 ${
                   activeTab === 'details' 
