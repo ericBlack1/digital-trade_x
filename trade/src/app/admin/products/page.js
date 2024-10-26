@@ -11,11 +11,13 @@ import {
   ChevronRight,
   Download
 } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 const ProductTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const itemsPerPage = 10;
+  const router = useRouter()
 
   // Sample data - replace with your actual data
   const products = [
@@ -102,17 +104,20 @@ const ProductTable = () => {
     return filteredProducts.slice(start, start + itemsPerPage);
   }, [currentPage, filteredProducts, itemsPerPage]);
 
+  const navigateToPage = (path) => {
+    router.push(path);
+  };
+
   return (
     <div className="bg-white p-6">
       {/* Header */}
       <div className="flex flex-col text-sm sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-        <h1 className="text-xl font-semibold text-gray-900">Product</h1>
-        <div className="flex gap-3">
+        <div className="flex gap-3 w-full justify-between">
           <button className="flex items-center gap-2 text-gray-600 px-3 py-2 border rounded-lg">
             <Download className="w-4 h-4" />
             Export
           </button>
-          <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg">
+          <button onClick={()=>navigateToPage('/admin/products/add')} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg">
             + Add Product
           </button>
         </div>
