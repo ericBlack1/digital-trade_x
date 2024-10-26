@@ -1,4 +1,4 @@
-/ pages/shop/index.jsx
+
 import { CategorySection } from '../../components/shop/CategorySection';
 import { CategoryGrid } from '../../components/shop/CategoryGrid';
 import categoryData from '../../data/categoryData';

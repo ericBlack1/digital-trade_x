@@ -8,7 +8,7 @@ export const ProductCard = ({ product }) => {
       <div className="rounded-lg overflow-hidden bg-white shadow-sm">
         <div className="relative h-48 w-full">
           <Image
-            src={product.image || "/api/placeholder/400/400"}
+            src={product.image || "https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU="}
             alt={product.name}
             fill
             className="object-cover"
