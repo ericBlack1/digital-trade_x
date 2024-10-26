@@ -2,13 +2,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+
 export const ProductCard = ({ product }) => {
+
+
   return (
     <Link href={`/product/${product.id}`} className="block">
       <div className="rounded-lg overflow-hidden bg-white shadow-sm">
         <div className="relative h-48 w-full">
           <Image
-            src={product.image || "/api/placeholder/400/400"}
+            src={product.image }
             alt={product.name}
             fill
             className="object-cover"
