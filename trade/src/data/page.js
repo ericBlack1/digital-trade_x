@@ -162,3 +162,22 @@ export const recentlyViewedData =
   ]
 
   
+// data/reviews.js
+export const reviewsData = {
+  cl_001: [
+    {
+      id: 1,
+      username: "Sarah M.",
+      rating: 4.5,
+      comment: "Great quality, fits perfectly!",
+      date: "2024-03-15"
+    },
+    {
+      id: 2,
+      username: "Mike R.",
+      rating: 5,
+      comment: "Excellent material and stitching",
+      date: "2024-03-10"
+    }
+  ]
+};
