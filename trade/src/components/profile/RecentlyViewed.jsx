@@ -16,5 +16,5 @@ export const RecentlyViewed = ({ items }) => {
         </div>
       </div>
     );
-  };
+};
   

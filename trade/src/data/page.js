@@ -124,23 +124,23 @@ export const servicesData = [
     {
       id: 1,
       title: 'Home Cleaning',
-      image: '/images/wash.jpg',
+      image: "https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU=",
       status: 'Live'
     },
     {
       id: 2,
       title: 'hair',
-      image: '/images/hair.jpg'
+      image: "https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU=",
     },
     {
       id: 3,
       title: 'Manicure',
-      image: '/images/nails.jpg'
+      image: "https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU=",
     },
     {
       id: 4,
       title: 'Phone Repair',
-      image: '/images/phone.jpg'
+      image: "https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU=",
     }
   ];
 
@@ -150,14 +150,14 @@ export const recentlyViewedData =
   [
    {
     id: 1,
-    image: '/images/mirror.jpg'
+    image: "https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU=",
    },
    {
     id: 2,
-    image: '/images/nails.jpg'
+    image: "https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU=",
    } , {
     id: 3,
-    image: '/images/cosmetics.jpg'
+    image: "https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU=",
    }
   ]
 
