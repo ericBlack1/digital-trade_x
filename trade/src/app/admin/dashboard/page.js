@@ -1,36 +1,25 @@
 'use client'
 import React from 'react';
 import {
-  BarChart,
-  Bar,
-  Line,
-  LineChart,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell
-} from 'recharts';
+  VictoryBar,
+  VictoryChart,
+  VictoryLine,
+  VictoryAxis,
+  VictoryPie,
+  VictoryTooltip,
+} from 'victory';
 import {
   ShoppingCart,
   Users,
   DollarSign,
   User,
-  ChevronDown,
-  Search,
-  Bell,
-  MessageSquare,
-  Settings,
-  MoreHorizontal,
   Edit,
-  Trash
+  Trash,
 } from 'lucide-react';
 
 // Sample data
 const statisticsData = Array(12).fill().map((_, i) => ({
-  name: `Month ${i + 1}`,
+  name: `${i + 1}`,
   revenue: Math.floor(Math.random() * 5000) + 2000,
   sales: Math.floor(Math.random() * 3000) + 1000,
 }));
@@ -43,27 +32,26 @@ const expensesData = [
 ];
 
 const orders = [
-    {
-      id: 1,
-      image: "https://plus.unsplash.com/premium_photo-1679913792906-13ccc5c84d44?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D",
-      productName: "Product Name 1",
-      category: "Category 1",
-      customerName: "John Doe",
-      price: "$299.00",
-      status: "Delivered",
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D",
-      productName: "Product Name 2",
-      category: "Category 2",
-      customerName: "Jane Smith",
-      price: "$149.00",
-      status: "Pending",
-    },
-    // Add more orders as needed
-  ];
-  
+  {
+    id: 1,
+    image: "https://plus.unsplash.com/premium_photo-1679913792906-13ccc5c84d44?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D",
+    productName: "Product Name 1",
+    category: "Category 1",
+    customerName: "John Doe",
+    price: "$299.00",
+    status: "Delivered",
+  },
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D",
+    productName: "Product Name 2",
+    category: "Category 2",
+    customerName: "Jane Smith",
+    price: "$149.00",
+    status: "Pending",
+  },
+  // Add more orders as needed
+];
 
 const Dashboard = () => {
   return (
@@ -107,37 +95,46 @@ const Dashboard = () => {
           {/* Target Chart */}
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold text-gray-900">Target</h2>
+              <h2 className="text-lg font-semibold text-blue-950">Target</h2>
               <span className="text-sm text-gray-700">Revenue Target</span>
             </div>
             <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={statisticsData}>
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="revenue" stroke="#2563eb" />
-                </LineChart>
-              </ResponsiveContainer>
+              <VictoryChart domainPadding={20}>
+                <VictoryAxis />
+                <VictoryAxis dependentAxis />
+                <VictoryLine
+                  data={statisticsData}
+                  x="name"
+                  y="revenue"
+                  style={{ data: { stroke: "#2563eb" } }}
+                />
+              </VictoryChart>
             </div>
           </div>
 
           {/* Statistics Chart */}
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold">Statistics</h2>
+              <h2 className="text-lg font-semibold text-blue-950">Statistics</h2>
               <span className="text-sm text-gray-700">Income and Expenses</span>
             </div>
             <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={statisticsData}>
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="revenue" fill="#2563eb" />
-                  <Bar dataKey="sales" fill="#10b981" />
-                </BarChart>
-              </ResponsiveContainer>
+              <VictoryChart>
+                <VictoryAxis />
+                <VictoryAxis dependentAxis />
+                <VictoryBar
+                  data={statisticsData}
+                  x="name"
+                  y="revenue"
+                  style={{ data: { fill: "#2563eb" } }}
+                />
+                <VictoryBar
+                  data={statisticsData}
+                  x="name"
+                  y="sales"
+                  style={{ data: { fill: "#10b981" } }}
+                />
+              </VictoryChart>
             </div>
           </div>
         </div>
@@ -145,30 +142,20 @@ const Dashboard = () => {
         {/* Bottom Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Expenses Chart */}
-          <div className="bg-white p-6 rounded-lg shadow">
+          <div className="bg-white p-6 rounded-lg shadow text-gray-700">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold">All Expenses</h2>
+              <h2 className="text-lg font-semibold text-blue-950">All Expenses</h2>
               <span className="text-sm text-gray-700">${expensesData.reduce((acc, curr) => acc + curr.value, 0)}</span>
             </div>
             <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={expensesData}
-                    dataKey="value"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={80}
-                    fill="#8884d8"
-                  >
-                    {expensesData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                </PieChart>
-              </ResponsiveContainer>
+              <VictoryPie
+                data={expensesData}
+                x="name"
+                y="value"
+                colorScale={expensesData.map(item => item.color)}
+                labels={({ datum }) => `${datum.name}: $${datum.value}`}
+                labelComponent={<VictoryTooltip />}
+              />
             </div>
             <div className="mt-4 space-y-2">
               {expensesData.map((item, index) => (
@@ -184,7 +171,7 @@ const Dashboard = () => {
           </div>
 
           {/* Recent Orders */}
-          <OrderTable/>
+          <OrderTable />
         </div>
       </main>
     </div>
@@ -213,63 +200,51 @@ const StatCard = ({ icon, title, value, change, period }) => {
 };
 
 const OrderTable = () => (
-    <div className="bg-white p-6 rounded-lg shadow overflow-x-auto text-nowrap">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold text-blue-950">Recent Orders</h2>
-        <span className="text-sm text-blue-500">View All</span>
-      </div>
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="text-left text-sm text-gray-600">
-              <th className="pb-4">Product</th>
-              <th className="pb-4">Customer</th>
-              <th className="pb-4">Price</th>
-              <th className="pb-4">Status</th>
-              <th className="pb-4">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="text-sm text-gray-700">
-            {orders.map((order) => (
-              <tr key={order.id} className="border-t">
-                <td className="py-4">
-                  <div className="flex items-center">
-                    <img src={order.image} className="w-10 h-10 rounded-lg mr-3" alt={order.productName} />
-                    <div>
-                      <div className="font-medium">{order.productName}</div>
-                      <div className="text-gray-500">{order.category}</div>
-                    </div>
-                  </div>
-                </td>
-                <td className="py-4">{order.customerName}</td>
-                <td className="py-4">{order.price}</td>
-                <td className="py-4">
-                  <span
-                    className={`px-2 py-1 text-xs rounded-full ${
-                      order.status === "Delivered"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-yellow-100 text-yellow-800"
-                    }`}
-                  >
-                    {order.status}
-                  </span>
-                </td>
-                <td className="py-4">
-                  <div className="flex space-x-2">
-                    <button className="p-1 hover:bg-gray-100 rounded">
-                      <Edit className="w-4 h-4 text-gray-500" />
-                    </button>
-                    <button className="p-1 hover:bg-gray-100 rounded">
-                      <Trash className="w-4 h-4 text-gray-500" />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+  <div className="bg-white p-6 rounded-lg shadow text-nowrap overflow-x-auto">
+    <div className="flex justify-between items-center mb-4">
+      <h2 className="text-lg font-semibold text-blue-950">Recent Orders</h2>
+      <span className="text-sm text-blue-500">View All</span>
     </div>
-  );
+    <div className="overflow-x-auto">
+      <table className="w-full">
+        <thead>
+          <tr className="text-left text-sm text-gray-600">
+            <th className="pb-4">Product</th>
+            <th className="pb-4"></th>
+            <th className="pb-4">Customer</th>
+            <th className="pb-4">Price</th>
+            <th className="pb-4">Status</th>
+            <th className="pb-4">Actions</th>
+          </tr>
+        </thead>
+        <tbody className="text-sm text-gray-700">
+          {orders.map((order) => (
+            <tr key={order.id} className="border-t">
+              <td className="py-4">
+                <div className="flex items-center">
+                  <img src={order.image} className="w-10 h-10 rounded" alt={order.productName} />
+                </div>
+              </td>
+              <td className="py-4">{order.productName}</td>
+              <td className="py-4">{order.customerName}</td>
+              <td className="py-4">{order.price}</td>
+              <td className="py-4">
+                <span className={`inline-block px-2 py-1 text-xs font-semibold rounded-full ${order.status === 'Delivered' ? 'bg-green-200 text-green-600' : 'bg-yellow-200 text-yellow-600'}`}>
+                  {order.status}
+                </span>
+              </td>
+              <td className="py-4">
+                <div className="flex space-x-2">
+                  <Edit className="w-4 h-4 text-blue-600" />
+                  <Trash className="w-4 h-4 text-red-600" />
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
 
 export default Dashboard;
