@@ -111,7 +111,7 @@ const SearchView = ({ onShopSelect }) => {
       products: [
         {
           id: 1,
-          image:
+          image: 
             "https://media.istockphoto.com/id/1499424212/photo/charming-elegant-lady-with-perfect-wavy-hair-sits-in-summer-dress-isolated-on-beige.jpg?s=2048x2048&w=is&k=20&c=KB148pplH0KnSwr_sSnrNBMyHy_jtGHu2LPhaNOl_xA=",
           price: 17.0,
           description: "Lorem ipsum dolor sit",
