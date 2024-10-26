@@ -1,5 +1,7 @@
 'use client'
 import React from 'react';
+import {motion} from 'framer-motion'
+import CountUp from 'react-countup';
 import {
   VictoryBar,
   VictoryChart,
@@ -63,28 +65,28 @@ const Dashboard = () => {
           <StatCard
             icon={<ShoppingCart className="w-6 h-6 text-blue-500" />}
             title="Revenue"
-            value="$75,000"
+            value="75000"
             change="+16%"
             period="since last month"
           />
           <StatCard
             icon={<Users className="w-6 h-6 text-green-500" />}
             title="Orders"
-            value="31,500"
+            value="31500"
             change="+12%"
             period="since last month"
           />
           <StatCard
             icon={<DollarSign className="w-6 h-6 text-yellow-500" />}
             title="Balance"
-            value="$51,250"
+            value="51250"
             change="+15%"
             period="since last month"
           />
           <StatCard
             icon={<User className="w-6 h-6 text-purple-500" />}
             title="Customers"
-            value="11,300"
+            value="11300"
             change="+18%"
             period="since last month"
           />
@@ -107,6 +109,7 @@ const Dashboard = () => {
                   x="name"
                   y="revenue"
                   style={{ data: { stroke: "#2563eb" } }}
+                   animate={{ duration: 1000, onLoad: { duration: 1000 } }}
                 />
               </VictoryChart>
             </div>
@@ -127,12 +130,14 @@ const Dashboard = () => {
                   x="name"
                   y="revenue"
                   style={{ data: { fill: "#2563eb" } }}
+                   animate={{ duration: 1000, onLoad: { duration: 1000 } }}
                 />
                 <VictoryBar
                   data={statisticsData}
                   x="name"
                   y="sales"
                   style={{ data: { fill: "#10b981" } }}
+                   animate={{ duration: 1000, onLoad: { duration: 1000 } }}
                 />
               </VictoryChart>
             </div>
@@ -148,14 +153,7 @@ const Dashboard = () => {
               <span className="text-sm text-gray-700">${expensesData.reduce((acc, curr) => acc + curr.value, 0)}</span>
             </div>
             <div className="h-64">
-              <VictoryPie
-                data={expensesData}
-                x="name"
-                y="value"
-                colorScale={expensesData.map(item => item.color)}
-                labels={({ datum }) => `${datum.name}: $${datum.value}`}
-                labelComponent={<VictoryTooltip />}
-              />
+              <ExpensesChart/>
             </div>
             <div className="mt-4 space-y-2">
               {expensesData.map((item, index) => (
@@ -185,7 +183,9 @@ const StatCard = ({ icon, title, value, change, period }) => {
       <div className="flex justify-between items-start">
         <div>
           <p className="text-gray-700 text-sm">{title}</p>
-          <h3 className="text-2xl text-blue-950 font-semibold mt-1">{value}</h3>
+          <h3 className="text-2xl text-blue-950 font-semibold mt-1">
+          <CountUp end={parseFloat(value)} duration={1.5} separator="," prefix="$" />
+          </h3>
         </div>
         <div className="p-2 bg-blue-50 rounded-lg">
           {icon}
@@ -246,5 +246,28 @@ const OrderTable = () => (
     </div>
   </div>
 );
+
+const ExpensesChart = () => (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}
+      className="h-64"
+    >
+      <VictoryPie
+        data={expensesData}
+        x="name"
+        y="value"
+        colorScale={expensesData.map(item => item.color)}
+        labels={({ datum }) => `${datum.name}: $${datum.value}`}
+        labelComponent={<VictoryTooltip />}
+        animate={{
+          duration: 1500,
+          easing: "cubicInOut",
+          onLoad: { duration: 1500 },
+        }}
+      />
+    </motion.div>
+  );
 
 export default Dashboard;
