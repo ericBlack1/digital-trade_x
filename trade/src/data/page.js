@@ -96,7 +96,7 @@ const categoryData = {
       shops: [
         {
           shopId: "shop_005",
-          shopName: "Intimate Essentials",
+          shopName: "Night wear",
           items: [
             {
               id: "ln_001",
@@ -117,3 +117,67 @@ const categoryData = {
   };
   
   export default categoryData;
+
+
+  // data/services.js
+export const servicesData = [
+    {
+      id: 1,
+      title: 'Home Cleaning',
+      image: '/images/wash.jpg',
+      status: 'Live'
+    },
+    {
+      id: 2,
+      title: 'hair',
+      image: '/images/hair.jpg'
+    },
+    {
+      id: 3,
+      title: 'Manicure',
+      image: '/images/nails.jpg'
+    },
+    {
+      id: 4,
+      title: 'Phone Repair',
+      image: '/images/phone.jpg'
+    }
+  ];
+
+  
+// data/recentlyViewed.js
+export const recentlyViewedData = 
+  [
+   {
+    id: 1,
+    image: '/images/mirror.jpg'
+   },
+   {
+    id: 2,
+    image: '/images/nails.jpg'
+   } , {
+    id: 3,
+    image: '/images/cosmetics.jpg'
+   }
+  ]
+
+  
+// data/reviews.js
+export const reviewsData = {
+  cl_001: [
+    {
+      id: 1,
+      username: "Sarah M.",
+      rating: 4.5,
+      comment: "Great quality, fits perfectly!",
+      date: "2024-03-15"
+    },
+    {
+      id: 2,
+      username: "Mike R.",
+      rating: 5,
+      comment: "Excellent material and stitching",
+      date: "2024-03-10"
+    }
+  ]
+};
