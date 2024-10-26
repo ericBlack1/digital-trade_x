@@ -26,8 +26,8 @@ const ProfilePage = () => {
       itemCount: 87,
       shops: []
     },
-    lingerie: {
-      displayName: "Lingerie",
+    electronics: {
+      displayName: "Electronics",
       itemCount: 218,
       shops: []
     }

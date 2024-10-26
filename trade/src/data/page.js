@@ -90,8 +90,8 @@ const categoryData = {
         }
       ]
     },
-    lingerie: {
-      displayName: "Lingerie",
+    electronics: {
+      displayName: "electronics",
       itemCount: 218,
       shops: [
         {
