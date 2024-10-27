@@ -460,17 +460,3 @@ function SignUpForm({ onToggleAuth }) {
     </div>
   );
 }
-
-// import AuthForms from "@/components/AuthForms";
-
-// export default function Page() {
-//   return (
-//     <div>
-//       <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
-//         <div className="container mx-auto px-4 py-8 max-w-md">
-//           <AuthForms />
-//         </div>
-//       </main>
-//     </div>
-//   );
-// }
