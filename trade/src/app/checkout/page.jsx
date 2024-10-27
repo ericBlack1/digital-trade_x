@@ -249,7 +249,7 @@ const EscrowCheckoutPage = () => {
           <button
             type="submit"
             disabled={isProcessing}
-            className={`w-full py-3 rounded-lg text-white font-medium ${
+            className={`w-full py-5 mb-[10px] rounded-lg text-bold text-white font-medium ${
               isProcessing ? "bg-gray-400" : "bg-blue-500 hover:bg-blue-600"
             } transition-colors`}
           >
