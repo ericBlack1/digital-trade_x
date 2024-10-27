@@ -8,7 +8,7 @@ const navItems = [
   { icon: LayoutGrid, label: 'Dashboard', href: '/admin/dashboard' },
   { icon: ShoppingCart, label: 'Products', href: '/admin/products' },
   { icon: User, label: 'Profile', href: '/admin/profile' },
-  { icon: Store, label: 'Store', href: '/admin/settings' },
+  { icon: Store, label: 'Store', href: '/admin/store' },
 ];
 
 export default function Header({ avatar }) {
