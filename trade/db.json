@@ -1,0 +1,186 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Smartwatch E2",
+        "price": "$400.00",
+        "status": "Published",
+        "sold": 1316,
+        "rating": 4.5,
+        "stock": 140,
+        "category": "Wearable Tech",
+        "variants": 3,
+        "description": "Smartwatch for men and women, notifies you of incoming calls and SMS notifications when connected to a smartphone. The smartwatches for Android phones vibrate to alert you if your phone receives any notifications. You can reject calls and view messages directly from your watch. A perfect gift for family and friends.",
+        "dimension": "0.25kg / 10 CM, 10 CM, 7 CM (H, L, W)",
+        "sku": "#302012",
+        "createdAt": "14 January 2022",
+        "images": [
+          "https://m.media-amazon.com/images/I/41HS692V+8L._AC_.jpg",
+          "https://m.media-amazon.com/images/I/5178q9AVOcL._AC_SX679_.jpg",
+          "https://m.media-amazon.com/images/I/41Jqw0Jh-iL._AC_SY879_.jpg",
+          "https://m.media-amazon.com/images/I/5174JPxYqtL._AC_SX679_.jpg"
+        ],
+        "colors": [
+          { "name": "Black", "class": "bg-black" },
+          { "name": "Gray", "class": "bg-gray-400" },
+          { "name": "Red", "class": "bg-red-500" }
+        ],
+        "orders": [
+          { "id": "#ORD-001", "date": "2024-10-25", "customer": "John Doe", "status": "Delivered", "amount": "$400.00" },
+          { "id": "#ORD-002", "date": "2024-10-24", "customer": "Jane Smith", "status": "Processing", "amount": "$400.00" },
+          { "id": "#ORD-003", "date": "2024-10-23", "customer": "Mike Johnson", "status": "Cancelled", "amount": "$400.00" }
+        ],
+        "reviews": [
+          { "id": 1, "user": "Sarah Williams", "rating": 5, "date": "2024-10-20", "comment": "Amazing smartwatch! The battery life is incredible...", "verified": true },
+          { "id": 2, "user": "James Wilson", "rating": 4, "date": "2024-10-18", "comment": "Good quality product, but the setup was a bit confusing.", "verified": true },
+          { "id": 3, "user": "Emily Brown", "rating": 5, "date": "2024-10-15", "comment": "Perfect gift for my husband.", "verified": true }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Wireless Earbuds X3",
+        "price": "$150.00",
+        "status": "Published",
+        "category": "Audio",
+        "variants": 2,
+        "sold": 890,
+        "rating": 4.3,
+        "stock": 200,
+        "description": "High-quality wireless earbuds with noise-canceling features, offering 20 hours of battery life and sweat resistance for workouts.",
+        "dimension": "0.1kg / 5 CM, 3 CM, 2 CM (H, L, W)",
+        "sku": "#102345",
+        "createdAt": "20 February 2023",
+        "images": [
+          "https://m.media-amazon.com/images/I/41rr6JeqLJL._AC_SX679_.jpg",
+          "https://m.media-amazon.com/images/I/514OQnrNPmL._AC_SX679_.jpg"
+        ],
+        "colors": [
+          { "name": "White", "class": "bg-white" },
+          { "name": "Black", "class": "bg-black" }
+        ],
+        "orders": [
+          { "id": "#ORD-004", "date": "2024-10-22", "customer": "Alice Walker", "status": "Delivered", "amount": "$150.00" }
+        ],
+        "reviews": [
+          { "id": 4, "user": "David Green", "rating": 4, "date": "2024-10-10", "comment": "Great sound quality but the case feels a bit cheap.", "verified": true }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Bluetooth Speaker A5",
+        "price": "$75.00",
+        "status": "Published",
+        "sold": 620,
+        "category": "Audio",
+        "variants": 2,
+        "rating": 4.7,
+        "stock": 85,
+        "description": "Portable Bluetooth speaker with waterproof design, ideal for outdoor use. 10-hour playtime and deep bass sound quality.",
+        "dimension": "0.5kg / 12 CM, 12 CM, 10 CM (H, L, W)",
+        "sku": "#304578",
+        "createdAt": "15 March 2023",
+        "images": [
+          "https://m.media-amazon.com/images/I/71m9YFtD4GL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+          "https://m.media-amazon.com/images/I/71KZbEusYsL._AC_SX679_.jpg"
+        ],
+        "colors": [
+          { "name": "Blue", "class": "bg-blue-500" },
+          { "name": "Black", "class": "bg-black" }
+        ],
+        "orders": [
+          { "id": "#ORD-005", "date": "2024-10-21", "customer": "Brian Edwards", "status": "Delivered", "amount": "$75.00" }
+        ],
+        "reviews": [
+          { "id": 5, "user": "Laura Martinez", "rating": 5, "date": "2024-10-05", "comment": "Perfect for the beach! Great sound.", "verified": true }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Gaming Mouse Pro",
+        "price": "$90.00",
+        "status": "Published",
+        "sold": 475,
+        "rating": 4.6,
+        "stock": 50,
+        "category": "Computer Accessories",
+        "variants": 2,
+        "description": "Ergonomic gaming mouse with customizable RGB lighting and high-precision sensor. Suitable for both gaming and work.",
+        "dimension": "0.15kg / 6 CM, 12 CM, 4 CM (H, L, W)",
+        "sku": "#201905",
+        "createdAt": "10 April 2023",
+        "images": [
+          "https://m.media-amazon.com/images/I/61nDTw3ZemL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+          "https://m.media-amazon.com/images/I/71g322X8gTL._AC_SX679_.jpg"
+        ],
+        "colors": [
+          { "name": "Black", "class": "bg-black" },
+          { "name": "Red", "class": "bg-red-500" }
+        ],
+        "orders": [
+          { "id": "#ORD-006", "date": "2024-10-19", "customer": "Jessica Taylor", "status": "Delivered", "amount": "$90.00" }
+        ],
+        "reviews": [
+          { "id": 6, "user": "Sam Harris", "rating": 4, "date": "2024-10-12", "comment": "Good mouse, but the software is a bit clunky.", "verified": true }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Fitness Tracker Y1",
+        "price": "$120.00",
+        "status": "Published",
+        "sold": 780,
+        "category": "Computer Accessories",
+        "variants": 2,
+        "rating": 4.2,
+        "stock": 120,
+        "description": "Waterproof fitness tracker with heart rate monitor, sleep tracking, and multi-sport modes. Supports both iOS and Android.",
+        "dimension": "0.05kg / 8 CM, 8 CM, 2 CM (H, L, W)",
+        "sku": "#507842",
+        "createdAt": "1 May 2023",
+        "images": [
+          "https://m.media-amazon.com/images/I/51CtR+quteL._AC_SY300_SX300_.jpg",
+          "https://m.media-amazon.com/images/I/51RawFyXDtL._AC_SX679_.jpg"
+        ],
+        "colors": [
+          { "name": "Black", "class": "bg-black" },
+          { "name": "Green", "class": "bg-green-500" }
+        ],
+        "orders": [
+          { "id": "#ORD-007", "date": "2024-10-18", "customer": "Daniel Scott", "status": "Processing", "amount": "$120.00" }
+        ],
+        "reviews": [
+          { "id": 7, "user": "Emma Thompson", "rating": 3, "date": "2024-09-30", "comment": "Decent fitness tracker, but the app needs improvement.", "verified": true }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "VR Headset Z4",
+        "price": "$300.00",
+        "status": "Published",
+        "sold": 412,
+        "rating": 4.4,
+        "stock": 60,
+        "category": "Wearable Tech",
+        "variants": 2,
+        "description": "Virtual reality headset with high-resolution display and motion sensors. Ideal for gaming and immersive experiences.",
+        "dimension": "0.7kg / 18 CM, 15 CM, 12 CM (H, L, W)",
+        "sku": "#908237",
+        "createdAt": "25 June 2023",
+        "images": [
+          "https://m.media-amazon.com/images/I/61mpOk4jguL._SX522_.jpg",
+          "https://m.media-amazon.com/images/I/61iW8kY+yXL._SX522_.jpg"
+        ],
+        "colors": [
+          { "name": "Black", "class": "bg-black" },
+          { "name": "White", "class": "bg-white" }
+        ],
+        "orders": [
+          { "id": "#ORD-008", "date": "2024-10-17", "customer": "Oliver King", "status": "Processing", "amount": "$300.00" }
+        ],
+        "reviews": [
+          { "id": 8, "user": "Grace Lee", "rating": 4, "date": "2024-10-02", "comment": "Great for gaming but a bit heavy.", "verified": true }
+        ]
+      }
+    ]
+  }
+  
