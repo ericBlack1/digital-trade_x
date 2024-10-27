@@ -9,7 +9,7 @@ export const NewItemsSection = () => (
         {[1, 2, 3].map((item) => (
           <div key={item} className="space-y-2">
             <img
-              src="https://media.istockphoto.com/id/1338720994/photo/middle-aged-mature-woman-with-blond-hair-wearing-sunglasses-walking-on-city-streets-while.webp?s=2048x2048&w=is&k=20&c=RLQV_a0umaXEM1UBdXvRVOmVrRIEN7q76VeBmo686iU="
+              src="https://images.pexels.com/photos/6958427/pexels-photo-6958427.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Product"
               className="w-full h-40 object-cover rounded-lg"
             />
