@@ -2,6 +2,7 @@
   "products": [
     {
       "id": "1",
+      "storeID": "ID-011222",
       "name": "Smartwatch E2",
       "price": "$400.00",
       "status": "Published",
@@ -86,6 +87,7 @@
     },
     {
       "id": "2",
+      "storeID": "ID-011222",
       "name": "Wireless Earbuds X3",
       "price": "$150.00",
       "status": "Published",
@@ -135,6 +137,7 @@
     {
       "id": "3",
       "name": "Bluetooth Speaker A5",
+      "storeID": "ID-011222",
       "price": "$75.00",
       "status": "Published",
       "sold": 620,
@@ -183,6 +186,7 @@
     {
       "id": "5",
       "name": "Fitness Tracker Y1",
+      "storeID": "ID-011222",
       "price": "$120.00",
       "status": "Published",
       "sold": 780,
@@ -230,6 +234,7 @@
     },
     {
       "id": "6",
+      "storeID": "ID-011223",
       "name": "VR Headset Z4",
       "price": "$300.00",
       "status": "Published",
@@ -278,6 +283,7 @@
     },
     {
       "id": "4e8f",
+      "storeID": "ID-011222",
       "name": "Air Max Pro",
       "price": "$150.00",
       "description": "Experience comfort and style with the Air Max Pro, a versatile sneaker designed for both casual wear and athletic performance. Featuring the iconic Air Max cushioning, it delivers exceptional support and impact absorption with every step. The lightweight mesh upper ensures breathability, while the durable rubber outsole provides reliable traction on various surfaces. Perfect for running, training, or everyday wear, the Air Max Pro is a must-have for those who value both fashion and functionality.",
@@ -312,6 +318,41 @@
       "rating": 0,
       "orders": [],
       "reviews": []
+    }
+  ],
+  "users": [
+    {
+      "id": "ID-011221",
+      "name": "Store Name",
+      "email": "store@email.com",
+      "address": "1234 Store Street, City, State 12345, USA",
+      "phone": "123 456 7890",
+      "lastTransaction": "15 October 2023",
+      "lastOnline": "1 Day Ago",
+      "profilePicture": "https://example.com/path/to/profile-picture.jpg",
+      "backgroundPhoto": "https://example.com/path/to/background-photo.jpg"
+    },
+    {
+      "id": "ID-011222",
+      "name": "Tech Store",
+      "email": "techstore@email.com",
+      "address": "5678 Tech Lane, City, State 54321, USA",
+      "phone": "237 654 3210",
+      "lastTransaction": "12 October 2023",
+      "lastOnline": "3 Days Ago",
+      "profilePicture": "https://static.vecteezy.com/system/resources/thumbnails/020/381/678/small_2x/aesthetic-cute-muslim-girl-with-hijab-flat-detailed-avatar-illustration-beautiful-muslim-woman-hijabi-cartoon-vector.jpg",
+      "backgroundPhoto": ""
+    },
+    {
+      "id": "ID-011223",
+      "name": "Book Haven",
+      "email": "info@bookhaven.com",
+      "address": "9102 Book St, City, State 67890, USA",
+      "phone": "564 738 2920",
+      "lastTransaction": "10 October 2023",
+      "lastOnline": "5 Days Ago",
+      "profilePicture": "https://example.com/path/to/bookhaven-profile.jpg",
+      "backgroundPhoto": ""
     }
   ]
 }

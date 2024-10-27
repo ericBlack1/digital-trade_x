@@ -25,6 +25,7 @@ const ProductForm = () => {
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
+    storeID: localStorage.getItem('userID') || '',
     price: '',
     description: '',
     category: '',

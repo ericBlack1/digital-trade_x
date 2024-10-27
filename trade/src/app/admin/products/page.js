@@ -32,7 +32,8 @@ const ProductTable = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        setProducts(data);
+        const prods = data.filter(prod=>prod.storeID===localStorage.getItem('userID'))
+        setProducts(prods);
         setError(null);
       } catch (err) {
         setError(err.message);
