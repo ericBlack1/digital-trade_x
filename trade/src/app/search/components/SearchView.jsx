@@ -9,19 +9,17 @@ const SearchView = ({ onShopSelect }) => {
 
   // Search history and recommendations data
   const searchHistory = [
-    "Socks",
-    "Red Dress",
-    "Sunglasses",
-    "Mustard Pants",
-    "80-s Skirt",
+    "phone",
+    "food",
+    "clothes",
   ];
 
   const recommendations = [
-    "Skirt",
-    "Accessories",
-    "Black T-Shirt",
-    "Jeans",
-    "White Shoes",
+    "wigs",
+    "electronics",
+    "household",
+    "watches",
+    "food",
   ];
 
   // Handle search input change

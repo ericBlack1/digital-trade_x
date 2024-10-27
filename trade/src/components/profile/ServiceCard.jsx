@@ -12,6 +12,7 @@ export const ServiceCard = ({ service }) => {
             Live
           </span>
         )}
+        <h3 className="text-[16px] mt-2 " >{service.title} </h3>
       </div>
     );
   };
