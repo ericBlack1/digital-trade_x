@@ -2,7 +2,7 @@ import { SectionHeader } from "./SectionHeader";
 // components/shop/PopularItemsSection.jsx
 export const PopularItemsSection = () => (
     <section className="mb-8 px-5">
-      <SectionHeader title="Most Popular" link="/popular" />
+      <SectionHeader title="Most Popular Shops" link="/popular" />
       <div className="grid grid-cols-4 gap-2 overflow-x-auto">
         {[
           { price: 1780, label: 'New' },

@@ -4,7 +4,7 @@ import { Announcement } from '../components/profile/Announcement';
 import { RecentlyViewed } from '../components/profile/RecentlyViewed';
 import { OrderSection } from '../components/profile/OrderSection';
 import { ServicesGrid } from '../components/profile/ServicesGrid';
-import { BottomNav } from '../components/profile/BottomNav';
+
 import { ShopSection } from '../components/shop/ShopSection';
 import { categoryData, servicesData, recentlyViewedData } from '@/data/page';
 
@@ -26,8 +26,8 @@ const ProfilePage = () => {
       itemCount: 87,
       shops: []
     },
-    lingerie: {
-      displayName: "Lingerie",
+    electronics: {
+      displayName: "Electronics",
       itemCount: 218,
       shops: []
     }
@@ -44,7 +44,7 @@ const ProfilePage = () => {
       <OrderSection />
       <ServicesGrid services={servicesData} />
       <ShopSection categoryData={shopData} />
-      <BottomNav />
+      
     </div>
   );
 };

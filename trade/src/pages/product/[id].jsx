@@ -1,28 +1,33 @@
-// pages/product/[id].jsx
+// pages/products/[id].jsx
 import { useRouter } from 'next/router';
-import { ProductDetails } from '../../components/shop/ProductDetails';
-import categoryData from '../../data/categoryData';
-import { reviewsData } from '../../data/reviews';
+import { shops } from '@/data/page'; // Adjust the path to your data file
 
-export default function ProductPage() {
+const ProductDetails = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  // Find product in categoryData
-  const product = Object.values(categoryData)
-    .flatMap(category => 
-      category.shops.flatMap(shop => 
-        shop.items.map(item => ({
-          ...item,
-          shopName: shop.shopName
-        }))
-      )
-    )
-    .find(item => item.id === id);
+  const product = shops
+    .flatMap((shop) => shop.products)
+    .find((item) => item.id === parseInt(id));
 
-  const reviews = reviewsData[id] || [];
+  if (!product) return <p>Product not found</p>;
 
-  if (!product) return <div>Product not found</div>;
+  return (
+    <div className="px-4 py-8 max-w-md mx-auto">
+      <img
+        src={product.image}
+        alt={product.description}
+        className="w-full rounded-lg mb-4"
+      />
+      <h1 className="text-2xl font-bold mb-2">{product.description}</h1>
+      <p className="text-lg font-semibold mb-4">FCFA {product.price.toFixed(2)}</p>
+      <p className="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, at.</p>
+      <div className="flex gap-4 mt-6">
+        <button className="flex-1 bg-black text-white py-2 rounded-lg">Add to cart</button>
+        <button className="flex-1 bg-blue-600 text-white py-2 rounded-lg">Buy now</button>
+      </div>
+    </div>
+  );
+};
 
-  return <ProductDetails product={product} reviews={reviews} />;
-}
+export default ProductDetails;
