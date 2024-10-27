@@ -198,7 +198,8 @@ export const shops = [
     products: [
       {
         id: 1,
-        image: "https://media.istockphoto.com/id/483232645/photo/african-fabrics-from-ghana-west-africa.webp?a=1&b=1&s=612x612&w=0&k=20&c=Q7qKZ90DG9jawdE46858JJGyLTRxtVlHKs_9PC30AaM=",
+        image:
+          "https://media.istockphoto.com/id/483232645/photo/african-fabrics-from-ghana-west-africa.webp?a=1&b=1&s=612x612&w=0&k=20&c=Q7qKZ90DG9jawdE46858JJGyLTRxtVlHKs_9PC30AaM=",
         price: 17.0,
         description: "Elegant African fabric",
       },
@@ -231,21 +232,21 @@ export const shops = [
       {
         id: 1,
         image:
-          "https://images.unsplash.com/photo-1506629082955-511b1e2e3b98?w=500&auto=format&fit=crop&q=60",
+          "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 999.0,
         description: "iPhone 13 Pro",
       },
       {
         id: 2,
         image:
-          "https://images.unsplash.com/photo-1536743649844-195a02e9bc8b?w=500&auto=format&fit=crop&q=60",
+          "https://images.pexels.com/photos/6608247/pexels-photo-6608247.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 799.0,
         description: "iPhone 12",
       },
       {
         id: 3,
         image:
-          "https://images.unsplash.com/photo-1580800930198-66d6dbd5a295?w=500&auto=format&fit=crop&q=60",
+          "https://images.pexels.com/photos/8156983/pexels-photo-8156983.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 699.0,
         description: "iPhone SE",
       },
@@ -297,21 +298,21 @@ export const shops = [
       {
         id: 1,
         image:
-          "https://images.unsplash.com/photo-1521804906463-f8a2fa4fa1a2?w=500&auto=format&fit=crop&q=60",
+          "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 70.0,
         description: "Classic leather watch",
       },
       {
         id: 2,
         image:
-          "https://images.unsplash.com/photo-1563729784474-d77dbb933a9b?w=500&auto=format&fit=crop&q=60",
+          "https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 120.0,
         description: "Luxury gold watch",
       },
       {
         id: 3,
         image:
-          "https://images.unsplash.com/photo-1514913583176-f0b921c47cb4?w=500&auto=format&fit=crop&q=60",
+          "https://images.pexels.com/photos/2113994/pexels-photo-2113994.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 80.0,
         description: "Smartwatch",
       },
@@ -323,27 +324,28 @@ export const shops = [
     id: 5,
     name: "Emmanuel's Electronics",
     preview:
-      "https://media.istockphoto.com/id/1689098415/photo/microchip-semiconductor-macrophotography-on-motherboard.webp",
+      "https://images.pexels.com/photos/159220/printed-circuit-board-print-plate-via-macro-159220.jpeg?auto=compress&cs=tinysrgb&w=600",
     description: "Lorem ipsum dolor sit amet consectetur",
     price: 125.0,
     products: [
       {
         id: 1,
         image:
-          "https://media.istockphoto.com/id/466842992/photo/digital-camera.webp",
+          "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 300.0,
         description: "Digital camera",
       },
       {
         id: 2,
-        image: "https://media.istockphoto.com/id/469840824/photo/laptop.webp",
+        image:
+          "https://images.pexels.com/photos/583842/pexels-photo-583842.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 1000.0,
         description: "High-performance laptop",
       },
       {
         id: 3,
         image:
-          "https://media.istockphoto.com/id/1043196994/photo/flat-screen-tv.webp",
+          "https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 500.0,
         description: "Flat screen TV",
       },
@@ -355,28 +357,28 @@ export const shops = [
     id: 6,
     name: "Clara's Beauty Shop",
     preview:
-      "https://media.istockphoto.com/id/1546442230/photo/front-view-skin-care-products-on-wooden-decorative-piece.webp",
+      "https://images.pexels.com/photos/212236/pexels-photo-212236.jpeg?auto=compress&cs=tinysrgb&w=600",
     description: "Lorem ipsum dolor sit amet consectetur",
     price: 125.0,
     products: [
       {
         id: 1,
         image:
-          "https://media.istockphoto.com/id/466533526/photo/facial-cleanser.webp",
+          "https://images.pexels.com/photos/9253766/pexels-photo-9253766.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 20.0,
         description: "Facial cleanser",
       },
       {
         id: 2,
         image:
-          "https://media.istockphoto.com/id/1162452805/photo/lipstick.webp",
+          "https://images.pexels.com/photos/1377034/pexels-photo-1377034.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 15.0,
-        description: "Red lipstick",
+        description: "Lipstick",
       },
       {
         id: 3,
         image:
-          "https://media.istockphoto.com/id/471850121/photo/skin-moisturizer.webp",
+          "https://images.pexels.com/photos/7607279/pexels-photo-7607279.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 25.0,
         description: "Skin moisturizer",
       },
@@ -388,28 +390,28 @@ export const shops = [
     id: 7,
     name: "Sara's Food",
     preview:
-      "https://media.istockphoto.com/id/1399461342/photo/cameroonian-food-fufu-eru-and-garri.webp",
+      "https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=600",
     description: "Lorem ipsum dolor sit amet consectetur",
     price: 125.0,
     products: [
       {
         id: 1,
         image:
-          "https://media.istockphoto.com/id/1211233401/photo/grilled-chicken.webp",
+          "https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 10.0,
         description: "Grilled chicken",
       },
       {
         id: 2,
         image:
-          "https://media.istockphoto.com/id/1250134354/photo/pasta-dish.webp",
+          "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 12.0,
         description: "Italian pasta",
       },
       {
         id: 3,
         image:
-          "https://media.istockphoto.com/id/470482387/photo/fruit-salad.webp",
+          "https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 8.0,
         description: "Fresh fruit salad",
       },
@@ -421,28 +423,28 @@ export const shops = [
     id: 8,
     name: "Jacob's Household",
     preview:
-      "https://media.istockphoto.com/id/1196974664/photo/set-of-home-kitchen-appliances-in-the-room-on-the-wall-background.webp",
+      "https://media.istockphoto.com/id/1343791228/photo/working-at-home-concept-with-sewing-machine-and-other-sewing-equipments-on-the-table-in-the.jpg?b=1&s=612x612&w=0&k=20&c=WEo8Na19gBH9LGak53G_IKCb5GtyJX_D1trNvE_grZU=",
     description: "Lorem ipsum dolor sit amet consectetur",
     price: 125.0,
     products: [
       {
         id: 1,
         image:
-          "https://media.istockphoto.com/id/471847912/photo/vacuum-cleaner.webp",
+          "https://images.pexels.com/photos/38325/vacuum-cleaner-carpet-cleaner-housework-housekeeping-38325.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 150.0,
         description: "Vacuum cleaner",
       },
       {
         id: 2,
         image:
-          "https://media.istockphoto.com/id/470486432/photo/coffee-machine.webp",
+          "https://images.pexels.com/photos/302894/pexels-photo-302894.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 120.0,
         description: "Coffee machine",
       },
       {
         id: 3,
         image:
-          "https://media.istockphoto.com/id/1301970526/photo/microwave.webp",
+          "https://media.istockphoto.com/id/489937746/photo/microwave-stove-isolated.jpg?b=1&s=612x612&w=0&k=20&c=fgFbHqEzmJ0JL1SSjmk58RXCWceiffrm2T_BtEfAJ-4=",
         price: 90.0,
         description: "Microwave oven",
       },
@@ -454,28 +456,28 @@ export const shops = [
     id: 9,
     name: "Samuel's Furniture",
     preview:
-      "https://media.istockphoto.com/id/1305292227/photo/modern-living-room-furniture.webp",
+      "https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=600",
     description: "Lorem ipsum dolor sit amet consectetur",
     price: 125.0,
     products: [
       {
         id: 1,
         image:
-          "https://media.istockphoto.com/id/1266585183/photo/modern-sofa.webp",
+          "https://images.pexels.com/photos/8135269/pexels-photo-8135269.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 400.0,
         description: "Modern sofa",
       },
       {
         id: 2,
         image:
-          "https://media.istockphoto.com/id/1263658283/photo/dining-table.webp",
+          "https://images.pexels.com/photos/4170038/pexels-photo-4170038.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 250.0,
         description: "Wooden dining table",
       },
       {
         id: 3,
         image:
-          "https://media.istockphoto.com/id/1285191116/photo/wooden-shelf.webp",
+          "https://images.pexels.com/photos/29109679/pexels-photo-29109679/free-photo-of-elegant-sunlit-dining-room-with-wooden-interiors.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 100.0,
         description: "Wooden shelf",
       },
@@ -487,29 +489,37 @@ export const shops = [
     id: 10,
     name: "Patrick's Groceries",
     preview:
-      "https://media.istockphoto.com/id/1267870631/photo/grocery-store.webp",
+      "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=600",
     description: "Lorem ipsum dolor sit amet consectetur",
     price: 125.0,
     products: [
       {
         id: 1,
         image:
-          "https://media.istockphoto.com/id/1284080025/photo/vegetables.webp",
+          "https://images.pexels.com/photos/1656663/pexels-photo-1656663.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 15.0,
         description: "Fresh vegetables",
       },
       {
         id: 2,
         image:
-          "https://media.istockphoto.com/id/1364110123/photo/dairy-products.webp",
+          "https://images.pexels.com/photos/8287393/pexels-photo-8287393.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 20.0,
         description: "Assorted dairy products",
       },
       {
         id: 3,
-        image: "https://media.istockphoto.com/id/1315795001/photo/fruits.webp",
+        image:
+          "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 12.0,
         description: "Seasonal fruits",
+      },
+      {
+        id: 4,
+        image:
+          "https://images.pexels.com/photos/1656663/pexels-photo-1656663.jpeg?auto=compress&cs=tinysrgb&w=600",
+        price: 15.0,
+        description: "Fresh vegetables",
       },
     ],
   },
