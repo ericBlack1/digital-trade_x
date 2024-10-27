@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
@@ -30,6 +30,8 @@ const ProductDetails = () => {
   const [cartItems, setCartItems] = useState([]);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [showMessageArea, setShowMessageArea] = useState(false);
+  const [message, setMessage] = useState('');
 
   const product = shops
     .flatMap((shop) => shop.products)
@@ -38,13 +40,22 @@ const ProductDetails = () => {
   if (!product) return <p>Product not found</p>;
 
   const handleAddToCart = () => {
-    setCartItems(prev => [...prev, product]);
+    setCartItems((prev) => [...prev, product]);
     setToastMessage(`${product.description} has been added to your cart`);
     setShowToast(true);
   };
 
   const handleBuyNow = () => {
     router.push(`/checkout?productId=${product.id}`);
+  };
+
+  const handleSendMessage = () => {
+    if (message.trim()) {
+      setToastMessage("Message sent successfully");
+      setShowToast(true);
+      setMessage(''); // Clear the text area after sending
+      setShowMessageArea(false); // Hide the text area after sending
+    }
   };
 
   return (
@@ -82,6 +93,35 @@ const ProductDetails = () => {
         </button>
       </div>
 
+      {/* Message Vendor Button */}
+      <div className="mt-6">
+        <button
+          onClick={() => setShowMessageArea(!showMessageArea)}
+          className="w-full bg-gray-200 text-black py-2 rounded-lg hover:bg-gray-300 transition-colors"
+        >
+          Message Vendor
+        </button>
+      </div>
+
+      {/* Message Area */}
+      {showMessageArea && (
+        <div className="m-6">
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Type your message here"
+            className="w-full p-2 border rounded-lg resize-none focus:outline-none"
+            rows="4"
+          />
+          <button
+            onClick={handleSendMessage}
+            className="w-full mt-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Send Message
+          </button>
+        </div>
+      )}
+
       {/* Custom Toast */}
       <Toast 
         message={toastMessage}
@@ -93,42 +133,3 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-
-
-
-
-// "use client"
-
-
-// // src/app/search/products/[id]/page.js
-// import { useParams } from 'next/navigation';
-// import { shops } from '@/data/page';
-
-// const ProductDetails = () => {
-//   const { id } = useParams();
-
-//   const product = shops
-//     .flatMap((shop) => shop.products)
-//     .find((item) => item.id === parseInt(id));
-
-//   if (!product) return <p>Product not found</p>;
-
-//   return (
-//     <div className="px-4 py-8 max-w-md mx-auto">
-//       <img
-//         src={product.image}
-//         alt={product.description}
-//         className="w-full rounded-lg mb-4"
-//       />
-//       <h1 className="text-2xl font-bold mb-2">{product.description}</h1>
-//       <p className="text-lg font-semibold mb-4">FCFA {product.price.toFixed(2)}</p>
-//       <p className="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, at.</p>
-//       <div className="flex gap-4 mt-6">
-//         <button className="flex-1 bg-black text-white py-2 rounded-lg">Add to cart</button>
-//         <button className="flex-1 bg-blue-600 text-white py-2 rounded-lg">Buy now</button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProductDetails;
