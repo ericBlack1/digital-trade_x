@@ -11,7 +11,7 @@ export const BottomNav = () => {
         <Heart className="w-6 h-6 text-gray-600 hover:text-blue-600" />
        <Link href="/shopping"> <ShoppingBag className="w-6 h-6 text-gray-600" /></Link>
     
-        <User className="w-6 h-6 text-gray-600" />
+    <Link href="/info">    <User className="w-6 h-6 text-gray-600" /></Link>
       </div>
     </div>
   );
