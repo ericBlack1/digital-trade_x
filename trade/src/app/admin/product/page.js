@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { 
   ChevronRight, 
   Star, 
@@ -21,9 +21,28 @@ const ProductDetails = ({id}) => {
   const [selectedColor, setSelectedColor] = useState('Black');
   const [product, setProduct] = useState(null);
 
+  //handle deletion
+  const handleDeleteProduct = useCallback(async (productId) => {
+    if (!window.confirm('Are you sure you want to delete this product?')) return;
+
+    try {
+      const response = await fetch(`http://localhost:5000/products/${productId}`, {
+        method: 'DELETE'
+      });
+      window.location.href = `/admin/products`
+      if (!response.ok) {
+        throw new Error('Failed to delete product');
+
+      }
+    } catch (err) {
+      console.error('Error deleting product:', err);
+      alert('Failed to delete product. Please try again.');
+    }
+  }, []);
+
   const getProductID = () => {
     const id = localStorage.getItem('productID');
-    return id ? Number(id) : null; // Return null if not found
+    return id; // Return null if not found
   };
 
   useEffect(() => {
@@ -115,7 +134,7 @@ const ProductDetails = ({id}) => {
             </div>
           </div>
           <div className="absolute right-2 top-2">
-            <button className="p-2 text-red-500 hover:bg-red-50 rounded-lg">
+            <button onClick={()=>handleDeleteProduct(getProductID())}className="p-2 text-red-500 hover:bg-red-50 rounded-lg">
               <Trash2 size={20} />
             </button>
           </div>
