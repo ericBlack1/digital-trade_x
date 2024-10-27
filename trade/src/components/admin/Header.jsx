@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, Search, X, LayoutGrid, ShoppingCart, User, Store } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,14 +11,30 @@ const navItems = [
   { icon: Store, label: 'Store', href: '/admin/store' },
 ];
 
-export default function Header({ avatar }) {
+export default function Header() {
   const [isSidenavOpen, setIsSidenavOpen] = useState(false);
+  const [profilePicture, setProfilePicture] = useState(null);
   const pathname = usePathname();
+  const userId = localStorage.getItem('userID'); // Retrieve user ID from local storage
 
   const toggleSidenav = () => setIsSidenavOpen(!isSidenavOpen);
 
   // Extract the page name, stopping after the first slash
   const pageName = pathname.split('/').slice(2, 3).join('') || 'Dashboard';
+
+  // Fetch user data from JSON server
+  useEffect(() => {
+    if (userId) {
+      fetch(`http://localhost:5000/users/${userId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setProfilePicture(data.profilePicture);
+        })
+        .catch((error) => {
+          console.error('Error fetching user data:', error);
+        });
+    }
+  }, [userId]);
 
   return (
     <>
@@ -32,7 +48,11 @@ export default function Header({ avatar }) {
           </button>
           <div className="text-lg text-blue-900 font-semibold capitalize">{pageName}</div>
           <div className="relative rounded-full border border-blue-100 h-10 w-10 overflow-hidden">
-            <img src={avatar} alt="avatar" className="w-full h-full object-cover" />
+            {profilePicture ? (
+              <img src={profilePicture} alt="Profile" className="w-full h-full object-cover" />
+            ) : (
+              <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-full w-full"></div> // Fallback gradient background
+            )}
           </div>
         </div>
         <div className="relative w-full">

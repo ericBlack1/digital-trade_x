@@ -11,6 +11,7 @@ import {
   Clipboard,
   X
 } from 'lucide-react';
+import AdminSpinner from '@/components/admin/AdminSpinner';
 
 const UserProfileCard = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -58,7 +59,7 @@ const UserProfileCard = () => {
   };
 
   if (!userInfo) {
-    return <p>Loading user data...</p>;
+    return <AdminSpinner/>;
   }
 
   const InfoRow = ({ icon, label, value }) => (
