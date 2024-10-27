@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const BottomNav = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t py-3 px-6">
+    <div className="sticky bottom-0 left-0 right-0 bg-white border-t py-3 px-6">
       <div className="flex justify-between max-w-md mx-auto">
         <Home href="/" className="w-6 h-6 text-gray-600 hover:text-blue-600 " />
         <Link href="/search">

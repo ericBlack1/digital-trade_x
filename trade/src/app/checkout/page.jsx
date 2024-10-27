@@ -258,11 +258,11 @@ const EscrowCheckoutPage = () => {
         </form>
       )}
 
-      {escrowStatus === "completed" && receiptData && (
+      {/* {escrowStatus === "completed" && receiptData && (
         <div className="mt-4">
           <ReceiptDownloadButton orderData={receiptData} />
         </div>
-      )}
+      )} */}
     </div>
   );
 };
