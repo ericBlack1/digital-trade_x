@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navItems = [
   { icon: LayoutGrid, label: 'Dashboard', href: '/admin/dashboard' },
   { icon: ShoppingCart, label: 'Products', href: '/admin/products' },
-  { icon: User, label: 'Profile', href: '/admin/profile' },
+  { icon: User, label: 'Profile', href: '/admin/store' },
   { icon: Store, label: 'Store', href: '/admin/store' },
 ];
 
