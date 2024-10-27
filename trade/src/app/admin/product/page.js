@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { 
   ChevronRight, 
   Star, 
@@ -13,75 +13,47 @@ import {
   XCircle,
   User
 } from 'lucide-react';
+import AdminSpinner from '@/components/admin/AdminSpinner';
 
-const ProductDetails = () => {
+const ProductDetails = ({id}) => {
   const [activeTab, setActiveTab] = useState('details');
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState('Black');
+  const [product, setProduct] = useState(null);
 
-  const images = [
-    "https://m.media-amazon.com/images/I/41HS692V+8L._AC_.jpg",
-    "https://m.media-amazon.com/images/I/5178q9AVOcL._AC_SX679_.jpg",
-    "https://m.media-amazon.com/images/I/41Jqw0Jh-iL._AC_SY879_.jpg",
-    "https://m.media-amazon.com/images/I/5174JPxYqtL._AC_SX679_.jpg"
-  ];
+  //handle deletion
+  const handleDeleteProduct = useCallback(async (productId) => {
+    if (!window.confirm('Are you sure you want to delete this product?')) return;
 
-  const colors = [
-    { name: 'Black', class: 'bg-black' },
-    { name: 'Gray', class: 'bg-gray-400' },
-    { name: 'Red', class: 'bg-red-500' }
-  ];
+    try {
+      const response = await fetch(`http://localhost:5000/products/${productId}`, {
+        method: 'DELETE'
+      });
+      window.location.href = `/admin/products`
+      if (!response.ok) {
+        throw new Error('Failed to delete product');
 
-  const orders = [
-    { 
-      id: '#ORD-001', 
-      date: '2024-10-25', 
-      customer: 'John Doe',
-      status: 'Delivered',
-      amount: '$400.00'
-    },
-    { 
-      id: '#ORD-002', 
-      date: '2024-10-24', 
-      customer: 'Jane Smith',
-      status: 'Processing',
-      amount: '$400.00'
-    },
-    { 
-      id: '#ORD-003', 
-      date: '2024-10-23', 
-      customer: 'Mike Johnson',
-      status: 'Cancelled',
-      amount: '$400.00'
+      }
+    } catch (err) {
+      console.error('Error deleting product:', err);
+      alert('Failed to delete product. Please try again.');
     }
-  ];
+  }, []);
 
-  const reviews = [
-    {
-      id: 1,
-      user: 'Sarah Williams',
-      rating: 5,
-      date: '2024-10-20',
-      comment: 'Amazing smartwatch! The battery life is incredible and the features are exactly what I needed.',
-      verified: true
-    },
-    {
-      id: 2,
-      user: 'James Wilson',
-      rating: 4,
-      date: '2024-10-18',
-      comment: 'Good quality product, but the setup was a bit confusing. Once configured, it works great.',
-      verified: true
-    },
-    {
-      id: 3,
-      user: 'Emily Brown',
-      rating: 5,
-      date: '2024-10-15',
-      comment: 'Perfect gift for my husband. The fitness tracking features are very accurate.',
-      verified: true
-    }
-  ];
+  const getProductID = () => {
+    const id = localStorage.getItem('productID');
+    return id; // Return null if not found
+  };
+
+  useEffect(() => {
+    //console.log("product id: ",getProductID())
+    fetch("http://localhost:5000/products/"+getProductID())
+      .then((response) => response.json())
+      .then((data) => setProduct(data))
+      .catch((error) => console.error("Error fetching product data:", error));
+  }, []);
+
+  if (!product) return <AdminSpinner/>;
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -112,7 +84,7 @@ const ProductDetails = () => {
       <div className="space-y-4">
         <div className="relative aspect-square bg-gray-100 border-[1.5px] border-gray-200 rounded-lg overflow-hidden">
           <img 
-            src={images[selectedImage]} 
+            src={product.images[selectedImage]} 
             alt="Product" 
             className="w-full h-full object-contain"
           />
@@ -121,7 +93,7 @@ const ProductDetails = () => {
           </button>
         </div>
         <div className="grid grid-cols-4 gap-4">
-          {images.map((img, idx) => (
+          {product.images.map((img, idx) => (
             <button
               key={idx}
               className={`aspect-square border-[1.5px] border-gray-200 rounded-lg overflow-hidden border-2 ${
@@ -139,33 +111,43 @@ const ProductDetails = () => {
       <div className="space-y-6 border-[1.5px] border-gray-200 p-6 rounded-lg relative">
         <div className="">
           <div>
-            <h1 className="text-xl text-gray-700 font-semibold">Smartwatch E2</h1>
+            <h1 className="text-xl text-gray-700 font-semibold">
+              {/* Smartwatch E2 */}
+              {product.name}
+            </h1>
             <div className="mt-2 flex items-center space-x-4 w-full text-sm text-gray-600">
               <span className="flex items-center">
                 <Package size={16} className="mr-1" />
-                Sold: 1,316
+                {/* Sold: 1,316 */}
+                {`Sold: ${product.sold}`}
               </span>
               <span className="flex items-center">
                 <Star size={16} className="mr-1 text-yellow-400" />
-                4.5/5
+                {/* 4.5/5 */}
+                {`${product.rating}/5`}
               </span>
               <span className="flex items-center">
                 <Package size={16} className="mr-1" />
-                Stock: 140
+                {/* Stock: 140 */}
+                {`Stock: ${product.stock}`}
               </span>
             </div>
           </div>
           <div className="absolute right-2 top-2">
-            <button className="p-2 text-red-500 hover:bg-red-50 rounded-lg">
+            <button onClick={()=>handleDeleteProduct(getProductID())}className="p-2 text-red-500 hover:bg-red-50 rounded-lg">
               <Trash2 size={20} />
             </button>
           </div>
         </div>
 
         <div className="flex items-baseline">
-          <span className="text-2xl font-light text-sky-950">$400.00</span>
+          <span className="text-2xl font-light text-sky-950">
+            {/* $400.00 */}
+            {`${product.price}`}
+          </span>
           <span className="ml-2 text-sm text-green-500 px-2 py-1 bg-green-50 rounded">
-            Published
+            {/* Published */}
+            {product.status}
           </span>
         </div>
 
@@ -173,24 +155,34 @@ const ProductDetails = () => {
         <div>
           <h3 className="text-xs font-medium text-gray-400 mb-2">Description:</h3>
           <p className="text-gray-700 text-sm">
-            Smartwatch for men women notify you incoming calls, SMS notifications. when you connect 
+            {/* Smartwatch for men women notify you incoming calls, SMS notifications. when you connect 
             the smartphone with fitness tracker. Connect fitness tracker with your phone, you will never 
             miss a call and a message. The smart watches for android phones will vibrate to alert you if 
             your phone receives any notifications. You can reject calls and view messages directly from 
-            your watch. A best gift for family and friends
+            your watch. A best gift for family and friends */}
+            {product.description}
           </p>
         </div>
 
         {/* Weight & Dimensions */}
         <div>
           <h3 className="text-xs font-medium text-gray-400 mb-2">Weight & Dimension:</h3>
-          <p className="text-gray-700 text-sm">0.25kg / 10 CM,10 CM,7 CM (H,L,W)</p>
+          <p className="text-gray-700 text-sm">
+            {/* 0.25kg / 10 CM,10 CM,7 CM (H,L,W) */}
+            {product.dimension}
+          </p>
         </div>
 
         {/* SKU & Created Date */}
         <div className="flex justify-between text-sm text-gray-500">
-          <span>SKU: #302012</span>
-          <span>Created: 14 January 2022</span>
+          <span>
+            {/* SKU: #302012 */}
+            {`SKU: ${product.sku}`}
+          </span>
+          <span>
+            {/* Created: 14 January 2022 */}
+            {`Created: ${product.createdAt}`}
+          </span>
         </div>
       </div>
     </div>
@@ -219,7 +211,7 @@ const ProductDetails = () => {
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
-          {orders.map((order) => (
+          {product.orders.map((order) => (
             <tr key={order.id} className="hover:bg-gray-50">
               <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                 {order.id}
@@ -247,7 +239,7 @@ const ProductDetails = () => {
 
   const renderReviews = () => (
     <div className="space-y-6">
-      {reviews.map((review) => (
+      {product.reviews.map((review) => (
         <div key={review.id} className="border-b border-gray-200 pb-6">
           <div className="flex items-start justify-between">
             <div className="flex items-center">
