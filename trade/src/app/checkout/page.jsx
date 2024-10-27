@@ -16,7 +16,7 @@ const EscrowCheckoutPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
-  const [escrowStatus, setEscrowStatus] = useState("initial"); // initial, funded, delivered, completed
+  const [escrowStatus, setEscrowStatus] = useState("initial");
   const [statusMessage, setStatusMessage] = useState("");
   const [receiptData, setReceiptData] = useState(null);
 
@@ -32,33 +32,25 @@ const EscrowCheckoutPage = () => {
     setStatusMessage("");
 
     try {
-      // Generate receipt data
       const receipt = generateReceiptData(
         { name, email, phoneNumber, paymentMethod, deliveryMethod },
         product
       );
       setReceiptData(receipt);
 
-      // Step 1: Initialize escrow
       await simulateApiCall("Initializing escrow account...", 1000);
-
-      // Step 2: Buyer funds escrow
-      await simulateApiCall("Processing payment to escrow account...", 1500);
       setEscrowStatus("funded");
       setStatusMessage(
         "Payment held in escrow. Awaiting seller to ship the item."
       );
 
-      // Step 3: Simulate seller notification
       await simulateApiCall("Notifying seller...", 1000);
-
-      // Simulate seller shipping (in real app, seller would confirm)
       setTimeout(() => {
         setEscrowStatus("delivered");
         setStatusMessage(
           "Item marked as delivered. Please confirm receipt to release payment."
         );
-      }, 5000);
+      }, 3000);
     } catch (error) {
       setStatusMessage("Error processing escrow payment: " + error.message);
     } finally {
@@ -70,11 +62,8 @@ const EscrowCheckoutPage = () => {
     setIsProcessing(true);
     try {
       await simulateApiCall("Verifying delivery...", 1000);
-      await simulateApiCall("Releasing funds to seller...", 1500);
       setEscrowStatus("completed");
-      setStatusMessage(
-        "Transaction completed successfully! Funds have been released to the seller."
-      );
+      setStatusMessage("Transaction completed! Funds released to the seller.");
     } catch (error) {
       setStatusMessage("Error confirming delivery: " + error.message);
     } finally {
@@ -87,11 +76,31 @@ const EscrowCheckoutPage = () => {
     return new Promise((resolve) => setTimeout(resolve, delay));
   };
 
+  const getProgress = () => {
+    switch (escrowStatus) {
+      case "initial":
+        return "0%";
+      case "funded":
+        return "33%";
+      case "delivered":
+        return "66%";
+      case "completed":
+        return "100%";
+      default:
+        return "0%";
+    }
+  };
+
   return (
     <div className="max-w-md mx-auto p-6">
       <h1 className="text-2xl font-bold mb-6">Secure Escrow Checkout</h1>
-      {/* Product Details and Escrow Status */}
-      <h1 className="text-2xl font-bold mb-6">Secure Escrow Checkout</h1>
+
+      <div className="bg-gray-200 rounded-full h-4 w-full mb-6 overflow-hidden">
+        <div
+          className="bg-blue-500 h-4 transition-all"
+          style={{ width: getProgress() }}
+        />
+      </div>
 
       <div className="bg-white shadow-md rounded-lg p-4 mb-6">
         <h2 className="font-semibold mb-2">How Our Escrow Works:</h2>
@@ -123,20 +132,17 @@ const EscrowCheckoutPage = () => {
       )}
 
       {escrowStatus === "delivered" && (
-        <div className="mb-6">
-          <button
-            onClick={handleConfirmDelivery}
-            disabled={isProcessing}
-            className="w-full py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg"
-          >
-            Confirm Receipt & Release Payment
-          </button>
-        </div>
+        <button
+          onClick={handleConfirmDelivery}
+          disabled={isProcessing}
+          className="w-full py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg"
+        >
+          Confirm Receipt & Release Payment
+        </button>
       )}
 
       {escrowStatus === "initial" && (
         <form onSubmit={handleEscrowPayment} className="space-y-6">
-          {/* Customer Information */}
           <div>
             <label className="block text-sm font-medium mb-2">Full Name</label>
             <input
@@ -249,21 +255,14 @@ const EscrowCheckoutPage = () => {
           >
             {isProcessing ? "Processing..." : "Pay Securely via Escrow"}
           </button>
-
-          {escrowStatus === "completed" && receiptData && (
-            <div className="mt-4">
-              <ReceiptDownloadButton orderData={receiptData} />
-            </div>
-          )}
         </form>
       )}
+
       {escrowStatus === "completed" && receiptData && (
         <div className="mt-4">
           <ReceiptDownloadButton orderData={receiptData} />
         </div>
       )}
-
-      {/* Remaining form and transaction processing code */}
     </div>
   );
 };
