@@ -1,10 +1,15 @@
-// pages/products/[id].jsx
-import { useRouter } from 'next/router';
-import { shops } from '@/data/page'; // Adjust the path to your data file
+"use client"
+
+
+// src/app/search/products/[id]/page.js
+
+
+
+import { useParams } from 'next/navigation';
+import { shops } from '@/data/page';
 
 const ProductDetails = () => {
-  const router = useRouter();
-  const { id } = router.query;
+  const { id } = useParams();
 
   const product = shops
     .flatMap((shop) => shop.products)
